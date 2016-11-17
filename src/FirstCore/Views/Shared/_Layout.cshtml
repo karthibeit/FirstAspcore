@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FirstCore</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/zf/dt-1.10.12/datatables.min.css" />
+        <link href="~/lib/foundation-sites/dist/foundation.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link href="node_modules/ag-grid/styles/ag-grid.css" rel="stylesheet" />
+        <link href="node_modules/ag-grid/styles/theme-fresh.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="node_modules/ag-grid/styles/ag-grid.css" rel="stylesheet" />
+        <link href="node_modules/ag-grid/styles/theme-fresh.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/zf/dt-1.10.12/datatables.min.css" />
+        <link rel="stylesheet" href="~/lib/foundation-sites/dist/foundation.min.css"
+              asp-fallback-href="~/lib/foundation-sites/dist/foundation.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills -->
+    <script src="/js/es6-shim.min.js"></script>
+    <script src="/js/system-polyfills.js"></script>
+    <!-- Angular2 libraries -->
+    <script src="/js/angular2-polyfills.js"></script>
+    <script src="/js/system.src.js"></script>
+    <script src="/js/Rx.js"></script>
+    <script src="/js/angular2.dev.js"></script>
+    <script src="/js/router.dev.js"></script>
+    <script src="/js/http.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.11/http.dev.js"></script>
+    <script src="/node_modules/ag-grid/dist/ag-grid.js"></script>
+    
+    <!-- Bootstrap via SystemJS -->
+    <script>
+
+        System.config
+        ({
+            packages:
+            {
+                "app":
+                {
+                    defaultExtension: 'js'
+                },
+                'lib': { defaultExtension: 'js' },
+                'ag-grid-ng2': {
+            defaultExtension: "js"
+        },
+        'ag-grid': {
+            defaultExtension: "js"
+        }
+            },
+            map: {
+        'ag-grid-ng2': 'node_modules/ag-grid-ng2',
+        'ag-grid': 'node_modules/ag-grid'
+    }
+        });
+        System.import('app/boot').then(null, console.error.bind(console));
+    </script>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <div class="menu-centered">
+                <ul class="menu">
+                    <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li><input type="search" placeholder="Search"></li>
+                <li><button type="button" class="button">Search</button></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2016 - Sample Web application</p>
+        </footer>
+    </div>
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+       
+        <script src="node_modules/ag-grid/dist/ag-grid.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/zf/dt-1.10.12/datatables.min.js"></script>
+        <script src="~/lib/foundation-sites/dist/foundation.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src=""></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script type="text/javascript" src="https://cdn.datatables.net/v/zf/dt-1.10.12/datatables.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="~/lib/foundation-sites/dist/foundation.min.js"
+                asp-fallback-src="~/lib/foundation-sites/dist/foundation.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

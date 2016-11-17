@@ -1,0 +1,2 @@
+"use strict";var StudentMasters=function(){function a(a,b,c,d,e){this.StdID=a,this.StdName=b,this.Email=c,this.Phone=d,this.Address=e}return a}();exports.StudentMasters=StudentMasters;
+//# sourceMappingURL=model.js.map

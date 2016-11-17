@@ -1,0 +1,1 @@
+{"version":3,"sources":["model.js"],"names":["StudentMasters","StdID","StdName","Email","Phone","Address","this","exports"],"mappings":"AAAA,YACA,IAAIA,gBAAkB,WAClB,QAASA,GAAeC,EAAOC,EAASC,EAAOC,EAAOC,GAClDC,KAAKL,MAAQA,EACbK,KAAKJ,QAAUA,EACfI,KAAKH,MAAQA,EACbG,KAAKF,MAAQA,EACbE,KAAKD,QAAUA,EAEnB,MAAOL,KAEXO,SAAQP,eAAiBA","file":"model.js"}
